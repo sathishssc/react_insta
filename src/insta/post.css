@@ -78,3 +78,8 @@
     font-size: 0.5rem;
     padding-top: 2px;
 }
+
+#desc{
+   padding-left: 10px;
+   font-weight: 500;
+}

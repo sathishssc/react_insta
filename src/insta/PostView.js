@@ -30,7 +30,7 @@ let [data , setdata] = useState([]);
         <div id="imgdiv"><img className="postImage" src={`https://instagram-backend-6ykv.onrender.com/uploads/${post.image}`} alt="not available"></img></div>
         <div><img id="likeImg" src={like} alt="like symbel"></img><img id="share" src={share} alt="share"></img> <div className="date">{post.date}</div></div>
         <div className="likes">{post.likes} likes</div>
-       
+       <div id="desc">{post.description}</div>
         </div>    
 
        ) )}
