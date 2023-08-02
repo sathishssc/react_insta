@@ -1,10 +1,10 @@
 import { useState } from "react"
 
 import './input.css'
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import icon from "./images/icon@2x.png"
 import camera from "./images/camera@2x.png"
-
+import { useNavigate } from 'react-router-dom';
 export default function CreatePost(){
 
     let [data , setdata] = useState({
@@ -14,7 +14,7 @@ export default function CreatePost(){
         image:null
     })
     let [post, setpost] = useState('');
-
+    let Navigate = useNavigate()
 
     function handleChange(e) {
       let { name, value } = e.target;
@@ -51,7 +51,8 @@ export default function CreatePost(){
         .catch(err => {
           console.log("Error:", err);
         });
-        setpost('su');
+        // setpost('su');
+        Navigate("/PostView")
       }
 
     return <div>
