@@ -63,9 +63,9 @@ export default function CreatePost(){
 
         <main id="inputmain">
         <div id="inputmain1">
-        {/* <Link to="/PostView">view posts</Link> */}
+        
         <br></br>
-        {post ? "post created successfully":<div>
+        {post ? <div>"post created successfully" <Link to="/PostView">view posts</Link> </div> :<div>
     
           <form onSubmit={postdata} encType="multipart/form-data">
           <input type="file" id="brouseFile" name="image" accept="image" onChange={handleChange}></input>
