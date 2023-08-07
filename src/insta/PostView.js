@@ -8,17 +8,28 @@ import share from "./images/share@2x.png"
 export default function PostView(){
 
 let [data , setdata] = useState([]);
+let [loading ,setLoading] = useState(true)
+
+
+    
     useEffect(()=>{
-        fetch("https://instagram-backend-6ykv.onrender.com/data").then(
-            res => res.json()
-        ).then(ss =>{
-            setdata(ss.data);
-        }).catch(err =>{
-            console.log(err);
-        });
+        setTimeout(() =>{
+            fetch("https://instagram-backend-6ykv.onrender.com/data").then(
+                res => res.json()
+            ).then(ss =>{
+                setdata(ss.data);
+                setLoading(false);
+            }).catch(err =>{
+                console.log(err);
+                setLoading(false);
+            });
+        },2000)
+        
     },[])
     return <div>
-       <header >
+    <div>
+    
+    {loading ? <div className="spinnerContainer"><div className="spinner"></div></div>:<div><header >
         <div id="headerpv"><img id="icon" src={icon} alt=""></img><h1>instagram </h1>
         <Link id="link" to="/CreatePost"><img id="camera" src={camera} alt="not available"></img></Link></div>
        </header>
@@ -34,7 +45,12 @@ let [data , setdata] = useState([]);
         </div>    
 
        ) )}
-       </main>
+       </main></div>}
+
+    </div>
+    
+
+       
       
            </div>
 }
